@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+/*Maquetado general con grid*/
+.contenedor{
+    
+    
+    
+    display: grid;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "header" 
+                         "contenido"
+                         "footer";
+}
+
+
+/*-----------------------------------------------
+------------------------------------------------*/
+/*header hecho con Bootstrap*/
+/*Los estilos del header se cargan directamente del archivo index.js 
+de javascrip*/
+.contenedor .header {
+  
+    grid-area: header;
+    
+}   
+
+/*-------------------------------------------------*/
+
+/*Cuerpo de la pagina*/
+.contenedor .contenido {
+    justify-content: center;
+}
+
+.contenedor .contenido .formulario {
+    grid-area: contenido;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: (2, 1fr);
+    grid-template-rows: repeat(7, auto);
+    background: #b9bfc3;
+    padding: 20px;
+    padding-top: 40px;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+
+}
+
+.campo_obligatorio {
+    color: #bb2929;
+}
+
+
+
+
+
+/*Estilos para los inputs y textarea*/
+.formulario_input {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 3px;
+    border: none;
+}
+
+.formulario_input:focus {
+    
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0 3px rgba(163, 163, 163, 0.4);
+   
+}
+
+
+textarea {
+    grid-column: span 2;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+}
+
+textarea:focus {
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 3px 0 3px rgba(163, 163, 163, 0.4);
+}
+/*---------------------------------------------------*/
+/*Estilos para los imputs incorrectos*/
+
+.formulario_grupo-incorrecto {
+    border: 3px solid #bb2929;
+}
+
+.formulario_input-error-activo {
+    display: block;
+    color: #bb2929;
+    font-size: 14px;
+}
+
+.formulario_mensaje-activo {
+    display: block;
+    color: #bb2929;
+    font-size: 14px;
+}
+
+/*---------------------------------------------------*/
+/*---------------------------------------------------*/
+/*Estilos para los imputs incorrectos*/
+.formulario_grupo-correcto {
+    border: 3px solid rgb(25, 98, 25);
+}
+
+/*---------------------------------------------------*/
+
+.formulario_label:hover {
+    cursor: pointer;
+}
+
+.contenedor .contenido .formulario .campo_nombre {
+    grid-column: span 2;
+    
+}
+
+
+
+.contenedor .contenido .formulario .campo_correo {
+    grid-column: 1/2;
+    
+}
+
+.contenedor .contenido .formulario .campo_telefono {
+    grid-column: 2/3;
+}
+
+.inf_tel {
+    font-size: 12px;
+}
+
+.contenedor .contenido .formulario .campo_mensaje {
+    grid-column: span 2;
+}
+
+
+.formulario_grupo {
+    width: 100;
+}
+
+.contenedor .contenido .formulario .campo_terminos {
+    grid-column: 1/2;
+
+    
+}
+
+.formulario_checkbox {
+    align-items: center;
+}
+
+.contenedor .contenido .formulario .campo_mensaje-incorrecto {
+    grid-column: span 2;
+}
+
+.grupo_asunto {
+    grid-column: span 2;
+}
+
+.contenedor .contenido .formulario .formulario_btn-enviar {
+    grid-column: 2/3;
+    justify-content: center;
+    width: 30%;
+}
+
+.contenedor .contenido .formulario .formulario_btn {
+    grid-column: 2/3;
+    height: 45px;
+    line-height: 45px;
+    width: 60%;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+.contenedor .contenido .formulario .formulario_btn:hover {
+    scale: 1.1;
+}
+
+.contenedor .contenido .formulario .formulario_btn:active {
+    background: #2c2c2c;
+}
+
+/*----------------------------------------------*/
+/*Estilos para campos correctos*/
+.formulario_input-error {
+    display: none;
+}
+
+/*.campo_mensaje-incorrecto {
+    display: none;
+}*/
+
+.campo_mensajef {
+    grid-column: span 2;
+    display: none;
+}
+
+
+/*--------------------------------------------------*/
+
+/*-------------------------------------------------*/
+/*Estilos para campos incorrectos*/
+
+.formulario_input-error-activo {
+    display: block;
+    color: #bb2929;
+}
+
+.campo_mensaje-incorrecto-activo {
+    display: block;
+    border: 3px solid #bb2929;
+    border-radius: 3px;
+    color: #bb2929;
+}
+
+.formulario__mensaje-activo {
+    display: block;
+    color: #bb2929;
+    border: 3px solid #bb2929;
+    border-radius: 3px;
+    padding: 5px 50px 5px 50px;
+    
+
+}
+
+.formulario_mensaje-exito {
+    grid-column: span 2;
+    display: none;
+}
+
+/*---------------------------------------------*/
+.campo_mensaje-correcto-activo {
+    display: block;
+    border: 3px solid #0c6820;
+    border-radius: 3px;
+    color: #0c6820;
+    padding: 5px 50px 5px 50px;
+}
+
+/*------------------------------------------------*/
+/*Los estilos del footer se cargan directamente del archivo index.js 
+de javascrip*/
+
+
+
+
+/*Mediaquery*/
+@media screen and (max-width: 768px) {
+    .contenedor .header {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+
+    .contenedor .header .logo img {
+        justify-self: center;
+    }
+}
+
+
+
+@media screen and (max-width: 495px) {
+    .contenedor .contenido .formulario .campo_nombre,
+    .contenedor .contenido .formulario .campo_correo,
+    .contenedor .contenido .formulario .campo_telefono,
+    .contenedor .contenido .formulario .campo_terminos,
+    .contenedor .contenido .formulario .campo_btn {
+        grid-column: span 2;
+    }
+
+    .contenedor .contenido .formulario .formulario_btn {
+        
+        width: 100%;
+    
+    }
+    
+}

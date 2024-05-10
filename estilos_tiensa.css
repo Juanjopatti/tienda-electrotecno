@@ -1,0 +1,205 @@
+/*Estilod para la tienda*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*Contenedor principal de la pagina con grid*/
+.contenedor {
+    display: grid;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:  "header header header"
+                        "contenido contenido sidebar"
+                        "footer footer footer";
+}
+
+/*La posicion de cada elemento configurada con "grid-area"*/
+.header {
+    grid-area: header;
+}
+
+body {
+    background: rgb(219, 247, 247);
+}
+.contenido {
+    
+    grid-area: contenido;
+    border:1px solid #babbbc;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    background: #fff;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center;
+    background: rgb(219, 247, 247);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.textSidebar {
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    background: #eb2ab4;
+    color: #fff;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.textSidebar a {
+    color:#fff
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/*Configuracion los div que contienen las tarjetas de los productos*/
+.contenido .classtv {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: centers;
+    padding: 15px;
+    margin: 5px;
+    border-top: 1px solid #3a3a3a;
+    overflow-x: scroll;
+    width: 90%;
+    background: #fff;
+
+    
+}
+
+/*Estilizacion de las tarjetas*/
+.card {
+    
+    width:  200px;
+    height: 350px;
+    
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1%);
+}
+
+.card img {
+    width: 100%;
+    max-height: 150px;
+}
+
+.card .contCard {
+    padding: 15px;
+    text-align: center;
+}
+
+.card .contCard a {
+    text-decoration: none;
+    border-radius: 4px;
+    background: #0b1ff6;
+    color: #fff;
+    padding: 5px;
+    transition: all 400ms ease;
+    
+
+}
+
+.card .contCard a:hover {
+    background: #3099e9;
+}
+
+.card .contCard a:active {
+    background: #3a3a3a;
+}
+
+/*Estilos para el carrusel (Bootstrap)*/
+.carousel {
+    width: 100%;
+    background: #70aee4;
+    border-radius: 4px;
+}
+
+.carousel .carousel-inner img {
+    width: 100%;
+}
+
+.carousel-item h3, p {
+    color: #eff4f7;
+    
+}
+
+/*Mediaquery hasta 768 px de pantalla*/
+@media screen and (max-width: 768px) {
+    .contenedor {
+        display: grid;
+        margin: 20px auto;
+        display: grid;
+        
+        grid-template-areas:  "header header header"
+                            "contenido contenido contenido"
+                            "sidebar sidebar sidebar"
+                            "footer footer footer";
+    }
+    
+
+    .sidebar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .textSidebar {
+        height: 100%;
+        width: 30%;
+    }
+
+    .textSidebar h2 {
+        font-size: 16px;
+    }
+
+    .carousel {
+        height: 100%;
+        
+    }
+    
+}
+
+/*Mediaquery para 560 px de
+@media screen and (max-width:560px) {
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .textSidebar {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+
+
