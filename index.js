@@ -15,37 +15,39 @@ var cadNav = `
 
         <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="tienda.html"><img src="./img/logo.png" alt="Logo" width="80px"></a>
+                <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" alt="Logo" width="80px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Tienda</a>
+                            <a class="nav-link" href="./index.html">Tienda</a>
                          </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
                         </li>
                        
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown">Categorias</a>
+                            <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown">
+                                Categorias
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="index.html#idTv">Smart TV</a></li>
-                                <li><a class="dropdown-item" href="index.html#idCel">Celulares</a></li>
-                                <li><a class="dropdown-item" href="index.html#idNotb">Computación</a></li>
+                                <li><a class="dropdown-item" href="./index.html#idTv">Smart TV</a></li>
+                                <li><a class="dropdown-item" href="./index.html#idCel">Celulares</a></li>
+                                <li><a class="dropdown-item" href="./index.html#idNotb">Computación</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Sobre Nosotros</a>
+                            <a class="nav-link" href="./nosotros.html">Sobre Nosotros</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    ` 
-    //Se carga el header dinámico en la etiqueta con id "idHeader"
-    document.getElementById('idHeader').innerHTML=cadNav;
+    `
+//Se carga el header dinámico en la etiqueta con id "idHeader"
+document.getElementById('idHeader').innerHTML = cadNav;
 /*-----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------*/
 
@@ -187,7 +189,7 @@ var cadFooter = `
 </div>`
 
 //Se carga el Footer de forma dinámica en la etiqueta con id "idFooter".
-document.getElementById('idFooter').innerHTML=cadFooter;
+document.getElementById('idFooter').innerHTML = cadFooter;
 /*---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------*/
 
@@ -233,7 +235,7 @@ var cadCar = `
   <span class="carousel-control-next-icon"></span>
 </button>
 `
-document.getElementById('demo').innerHTML=cadCar;
+document.getElementById('demo').innerHTML = cadCar;
 
 //.......................................................................
 //.......................................................................
@@ -250,7 +252,7 @@ var smartTv = [
         precio: 305279,
         descripcion: "Smart TV Motorola 91MT43E3A LED Android TV Full HD 43' 220V",
         nombre: "TV Motorola 43'"
-        
+
     },
     {
         codigo: "tv002",
@@ -259,7 +261,7 @@ var smartTv = [
         precio: 380400,
         descripcion: "Smart Tv Noblex Dk43x7100pi Led Full Hd 43 Android Tv",
         nombre: "TV Noblex 43'"
-        
+
     },
     {
         codigo: "tv003",
@@ -268,7 +270,7 @@ var smartTv = [
         precio: 450000,
         descripcion: "Televisor Samsung Un43t5300agczb Smart Tv Pantalla 43",
         nombre: "TV Samsung 43'"
-        
+
     },
     {
         codigo: "tv004",
@@ -277,7 +279,7 @@ var smartTv = [
         precio: 447999,
         descripcion: "Televisor Philips 43' Android Tv 10 Full Hd Hdr10 Bluetooth",
         nombre: "TV Philip 43'"
-        
+
     }
 ];
 
@@ -287,10 +289,10 @@ var smartTv = [
 
 /*Con un condicional if se busca la etiqueta con id "idTv" y en caso de encontrarla
 se cargan los productos correspondientes a la categoría Smart TV*/
-if(document.getElementById('idTv')) {
-   
-   //En la variable cad se cargan los estilos css de las tarjetas para mostrar los productos.
-    cad=`
+if (document.getElementById('idTv')) {
+
+    //En la variable cad se cargan los estilos css de las tarjetas para mostrar los productos.
+    cad = `
     
 
     <style>
@@ -358,12 +360,12 @@ if(document.getElementById('idTv')) {
     }
     </style>
         <table>`
-          
-        /* Bucle for para iterar el objeto Smat TV y armar las tarjetas de cada producto.
-        Se puede hacer con un for in para mejorarlo y lo ideal sería craer una función
-        ya que esto se repite por cada categória*/
-        for (var i = 0; i < smartTv.length; i++){
-            cad+=`
+
+    /* Bucle for para iterar el objeto Smat TV y armar las tarjetas de cada producto.
+    Se puede hacer con un for in para mejorarlo y lo ideal sería craer una función
+    ya que esto se repite por cada categória*/
+    for (var i = 0; i < smartTv.length; i++) {
+        cad += `
                 <td>
                     
                     <th><div class="card">
@@ -378,14 +380,14 @@ if(document.getElementById('idTv')) {
                         </div>
                     </div></th>
                 </td>`
-                var producto = smartTv[i].codigo
-                
-        }
-        cad+=`
+        var producto = smartTv[i].codigo
+
+    }
+    cad += `
             </table>`
-            //Se carga las tarjetas creadas con el bucle en la etiqueta con id "idTv"
-            document.getElementById('idTv').innerHTML=cad;
-            
+    //Se carga las tarjetas creadas con el bucle en la etiqueta con id "idTv"
+    document.getElementById('idTv').innerHTML = cad;
+
 }
 /*-----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------*/
@@ -400,7 +402,7 @@ var celulares = [
         precio: 863290,
         descripcion: "Celular Samsung Galaxy S22 5g 128gb + 8gb 120 Hz Negro",
         nombre: "Samsung Galaxy S22"
-        
+
     },
     {
         codigo: "cel002",
@@ -409,7 +411,7 @@ var celulares = [
         precio: 340000,
         descripcion: "Celular Motorola Moto G22 128gb + Ram 4 Gb",
         nombre: "Motorola Moto G22"
-        
+
     },
     {
         codigo: "cel003",
@@ -418,7 +420,7 @@ var celulares = [
         precio: 899999,
         descripcion: "Xiaomi Pocophone Poco X6 Pro 5G Dual SIM 512 GB negro 12 GB RAM",
         nombre: "Xiaomi Poco X6"
-        
+
     },
     {
         codigo: "cel004",
@@ -427,7 +429,7 @@ var celulares = [
         precio: 1738999,
         descripcion: "Apple iPhone 14 Pro Max (128 GB) - Morado oscuro",
         nombre: "iPhone 14 Pro Max"
-        
+
     }
 ]
 /*------------------------------------------------------------------------------------------
@@ -436,8 +438,8 @@ var celulares = [
 
 
 //Nuevamente se repiten los pasos para crear las terjetas de los productos, esta vez para la categoría "Celulares".
-if(document.getElementById('idCel')) {
-    cad=`
+if (document.getElementById('idCel')) {
+    cad = `
     
 
     <style>
@@ -501,10 +503,10 @@ if(document.getElementById('idCel')) {
     }
     </style>
         <table>`
-          
 
-        for (var i = 0; i < celulares.length; i++){
-            cad+=`
+
+    for (var i = 0; i < celulares.length; i++) {
+        cad += `
                 <td>
                     
                     <th><div class="card">
@@ -519,12 +521,12 @@ if(document.getElementById('idCel')) {
                         </div>
                     </div></th>
                 </td>`
-                
-        }
-        cad+=`
+
+    }
+    cad += `
             </table>`
 
-            document.getElementById('idCel').innerHTML=cad;
+    document.getElementById('idCel').innerHTML = cad;
 }
 /*--------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------*/
@@ -540,7 +542,7 @@ var notebook = [
         precio: 678399,
         descripcion: "Notebook Lenovo AMD Ryzen 3 15.6 Pulgadas Full HD 8GB de RAM, 256gb SSD IdeaPad 1, Windows 11",
         nombre: "Notebook Lenovo"
-        
+
     },
     {
         codigo: "nb002",
@@ -549,12 +551,12 @@ var notebook = [
         precio: 971999,
         descripcion: "Notebook Asus X515EA slate gray 15.6', Intel Core i5 1135G7 16GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 60 Hz 1920x1080px FreeDOS",
         nombre: "Notebook Asus"
-        
+
     }
 ]
 
-if(document.getElementById('idNotb')) {
-    cad=`
+if (document.getElementById('idNotb')) {
+    cad = `
     
 
     <style>
@@ -620,10 +622,10 @@ if(document.getElementById('idNotb')) {
    
     </style>
         <table>`
-          
 
-        for (var i = 0; i < notebook.length; i++){
-            cad+=`
+
+    for (var i = 0; i < notebook.length; i++) {
+        cad += `
                 <td>
                     
                     <th><div class="card">
@@ -638,14 +640,14 @@ if(document.getElementById('idNotb')) {
                         </div>
                     </div></th>
                 </td>`
-                
-        }
-        cad+=`
+
+    }
+    cad += `
             </table>`
 
-            document.getElementById('idNotb').innerHTML=cad;
+    document.getElementById('idNotb').innerHTML = cad;
 
 
-   
-    }
+
+}
 
