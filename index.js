@@ -1,5 +1,8 @@
+/*En esta sección del código trabajamos en el Header para poder cargarlo de forma dinámica en todas las
+páginas del sitio*/
 
-//En la variable cadNav guardamos el nav y los estilos para cargarlos luego en el html de forma dinámica mediante el id del header.
+
+//En la variable cadNav guardamos el nav y los estilos para cargarlos luego en el html mediante el id del header.
 //Se uso Bootstrap en el nav con menú haburguesa y se personalizaron los estilos con css.
 var cadNav = `
         <style>
@@ -15,7 +18,7 @@ var cadNav = `
 
         <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="tienda.html"><img src="./img/logo.png" alt="Logo" width="80px"></a>
+                <a class="navbar-brand" href="index.html"><img src="./img/logo.png" alt="Logo" width="80px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -46,8 +49,14 @@ var cadNav = `
     ` 
     //Se carga el header dinámico en la etiqueta con id "idHeader"
     document.getElementById('idHeader').innerHTML=cadNav;
+
+
 /*-----------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------*/
+-------------------------------------------Fin seccion Header------------------------------
+-------------------------------------------------------------------------------------------*/
+
+
+/*En esta sección trabajamos en el Footer de la misma forma que lo hicimos con el Header*/
 
 
 //En la variable cadFooter guardamos el pie de página con sus estilos para cargarlo de forma dinámica en el html mediante el id del footer.
@@ -188,10 +197,16 @@ var cadFooter = `
 
 //Se carga el Footer de forma dinámica en la etiqueta con id "idFooter".
 document.getElementById('idFooter').innerHTML=cadFooter;
+
+
 /*---------------------------------------------------------------------------------------------
+-------------------------------Fin seccion del Footer------------------------------------------
 ---------------------------------------------------------------------------------------------*/
 
-/*Carrusel de Bootstarp cargado en el div con id "demo" dentro de la etiqueta "aside"*/
+
+/*En esta seccion del codigo trabajamos con un carrusel de Bootstrap para mostrar promociones/*
+
+/*Carrusel cargado en el div con id "demo" dentro de la etiqueta "aside"*/
 var cadCar = `
 <!-- Indicators/dots -->
 <div class="carousel-indicators">
@@ -235,10 +250,14 @@ var cadCar = `
 `
 document.getElementById('demo').innerHTML=cadCar;
 
-//.......................................................................
-//.......................................................................
-//......................................................................
 
+/*---------------------------------------------------------------------------------
+----------------------------Fin seccion carrusel-----------------------------------
+-----------------------------------------------------------------------------------*/
+
+
+
+/*a partir de acá creamos los objetos que contienen a los productos*/
 
 /*Se crea el objeto Smart TV para cargar los productos de forma dinámica ya que aún 
 no trabajamos con base de datos*/
@@ -281,8 +300,7 @@ var smartTv = [
     }
 ];
 
-//.............................................................................
-//.............................................................................
+
 
 
 /*Con un condicional if se busca la etiqueta con id "idTv" y en caso de encontrarla
@@ -290,6 +308,10 @@ se cargan los productos correspondientes a la categoría Smart TV*/
 if(document.getElementById('idTv')) {
    
    //En la variable cad se cargan los estilos css de las tarjetas para mostrar los productos.
+
+   
+
+
     cad=`
     
 
@@ -359,39 +381,20 @@ if(document.getElementById('idTv')) {
     </style>
         <table>`
           
-        /* Bucle for para iterar el objeto Smat TV y armar las tarjetas de cada producto.
-        Se puede hacer con un for in para mejorarlo y lo ideal sería craer una función
-        ya que esto se repite por cada categória*/
-        for (var i = 0; i < smartTv.length; i++){
-            cad+=`
-                <td>
-                    
-                    <th><div class="card">
-           
-                        <figure>
-                            <img src="${smartTv[i].imagen}">
-                        </figure>
-                        <div class="contCard">
-                            <h5> ${smartTv[i].nombre}</h5>
-                            <p class="valor">$${smartTv[i].precio}</p>
-                            <a href="${smartTv[i].codigo}.html" target="_blank">Ver producto</a>
-                        </div>
-                    </div></th>
-                </td>`
-                var producto = smartTv[i].codigo
-                
-        }
+        
+        //Función "agregarProducto" está al final del codigo, tiene un bucle for para
+        //iterar los 'objetos' y generar las tarjetas de cada producto
+        agregarProducto (smartTv);
         cad+=`
             </table>`
-            //Se carga las tarjetas creadas con el bucle en la etiqueta con id "idTv"
+            //Se carga las tarjetas creadas con la función en la etiqueta con id "idTv"
             document.getElementById('idTv').innerHTML=cad;
             
 }
 /*-----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------*/
 
-/*Se repiten los pasos anteriores para crear las tarjetas de los prodctos y es por eso que 
-digo que lo mejor es meter el bucle en una función ya que sino se repite mucho código*/
+//Se repiten los pasos anteriores para crear las tarjetas de los prodctos en las otras categorias. 
 var celulares = [
     {
         codigo: "cel001",
@@ -430,12 +433,11 @@ var celulares = [
         
     }
 ]
-/*------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------*/
 
 
 
-//Nuevamente se repiten los pasos para crear las terjetas de los productos, esta vez para la categoría "Celulares".
+
+
 if(document.getElementById('idCel')) {
     cad=`
     
@@ -503,24 +505,8 @@ if(document.getElementById('idCel')) {
         <table>`
           
 
-        for (var i = 0; i < celulares.length; i++){
-            cad+=`
-                <td>
-                    
-                    <th><div class="card">
-           
-                        <figure>
-                            <img src="${celulares[i].imagen}">
-                        </figure>
-                        <div class="contCard">
-                            <h5>${celulares[i].nombre}</h5>
-                            <p class="valor">$${celulares[i].precio}</p>
-                            <a href="${celulares[i].codigo}.html" target="_blank">Ver producto</a>
-                        </div>
-                    </div></th>
-                </td>`
-                
-        }
+        
+        agregarProducto (celulares);
         cad+=`
             </table>`
 
@@ -622,24 +608,8 @@ if(document.getElementById('idNotb')) {
         <table>`
           
 
-        for (var i = 0; i < notebook.length; i++){
-            cad+=`
-                <td>
-                    
-                    <th><div class="card">
-           
-                        <figure>
-                            <img src="${notebook[i].imagen}">
-                        </figure>
-                        <div class="contCard">
-                            <h5>${notebook[i].nombre}</h5>
-                            <p class="valor">$${notebook[i].precio}</p>
-                            <a href="${notebook[i].codigo}.html" target="_blank">Ver producto</a>
-                        </div>
-                    </div></th>
-                </td>`
-                
-        }
+        
+        agregarProducto (notebook);
         cad+=`
             </table>`
 
@@ -649,3 +619,26 @@ if(document.getElementById('idNotb')) {
    
     }
 
+    //Funcion para iterar los objetos de cada categoría y generar las tarjetas de cada producto
+    //para poder mostarlos.
+    function agregarProducto (producto){
+
+    for (var i = 0; i < producto.length; i++){
+        cad+=`
+            <td>
+                
+                <th><div class="card">
+       
+                    <figure>
+                        <img src="${producto[i].imagen}">
+                    </figure>
+                    <div class="contCard">
+                        <h5>${producto[i].nombre}</h5>
+                        <p class="valor">$${producto[i].precio}</p>
+                        <a href="${producto[i].codigo}.html" target="_blank">Ver producto</a>
+                    </div>
+                </div></th>
+            </td>`
+            
+    }
+}
