@@ -184,7 +184,7 @@ body {
     
 }
 
-/*Mediaquery para 560 px de
+/*Mediaquery para 560 px de*/
 @media screen and (max-width:560px) {
     .sidebar {
         flex-direction: column;
